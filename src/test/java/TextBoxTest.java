@@ -9,9 +9,6 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class TextBoxTest {
 
-    public class TextBoxTest {
-
-
         @BeforeAll
         static void setConfig() {
             Configuration.browserSize = "1920x1080";
@@ -59,6 +56,7 @@ public class TextBoxTest {
             $("#state").click();
             $("#react-select-3-input").setValue("NCR").click();
             $("#city").click();
+            $("#city").$(byText("Merrut")).click();
             //$(byText("Delhi")).shouldBe(visible).click();
             //$("#react-select-4-input").shouldBe(editable);
             // $("#react-select-4-input").setValue("Delhi");
@@ -66,5 +64,3 @@ public class TextBoxTest {
         }
 
     }
-
-}
