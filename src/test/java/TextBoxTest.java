@@ -49,7 +49,7 @@ import static com.codeborne.selenide.Selenide.*;
         }
 
         @Test
-        void fillPracticeFormTest() {
+         void fillPracticeFormTest() {
             open("/automation-practice-form");
             executeJavaScript("$('footer').remove();");
             executeJavaScript("$('#fixedban').remove();");
