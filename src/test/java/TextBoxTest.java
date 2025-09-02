@@ -36,7 +36,7 @@ public class TextBoxTest {
         }
 
         @Test
-         void fillPracticeFormTest() {
+         void fillStudentRegistrationFormTest() {
             open("/automation-practice-form");
             executeJavaScript("$('footer').remove();");
             executeJavaScript("$('#fixedban').remove();");
@@ -53,14 +53,28 @@ public class TextBoxTest {
             $("label[for='hobbies-checkbox-1']").click();
             $("#uploadPicture").uploadFromClasspath("example.jpeg");
             $("#currentAddress").setValue("11250 E STATE ROUTE 69 DEWEY AZ 86327-4422 USA");
-            $("#state").click();
-            $("#react-select-3-input").setValue("NCR").click();
-            $("#city").click();
-            $("#city").$(byText("Merrut")).click();
-            //$(byText("Delhi")).shouldBe(visible).click();
-            //$("#react-select-4-input").shouldBe(editable);
-            // $("#react-select-4-input").setValue("Delhi");
+            //$("#state").click();
+            // $("#react-select-3-input").setValue("NCR").click();
+            // $("#city").click();
+            //$("#city").$(byText("Delhi")).click();
             $("#submit").click();
+
+            //Проверка результата заполнения формы
+
+            $("td").shouldHave(text("Alex"));
+            //.shouldHave(text("alex@gmail.com"));
+            //.shouldHave(text("Saegn"));
+            //.shouldHave(text("Female"));
+            //.shouldHave(text("7846586867"));
+            //.shouldHave(text("26 July,1980"));
+            //.shouldHave(text("123"));
+            //.shouldHave(text("Sports"));
+            //.shouldHave(text("example.jpeg"));
+            //.shouldHave(text("11250 E STATE ROUTE 69 DEWEY AZ 86327-4422 USA"));
+            //.shouldHave(text("NCR Delhi"));
+
+
+
         }
 
     }
