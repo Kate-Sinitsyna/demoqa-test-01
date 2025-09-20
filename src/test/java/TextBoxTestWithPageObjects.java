@@ -15,6 +15,7 @@ public class TextBoxTestWithPageObjects extends TestBase{
         @Test
         void fillFormTest() {
             textBoxPage.openPage()
+                    .deleteAds()
                     .setName("Kitty")
                     .setUserEmail("kitty@gmail.com")
                     .setCurrentAddress("11250 E STATE ROUTE 69 DEWEY AZ 86327-4422 USA")
