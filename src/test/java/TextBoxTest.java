@@ -1,4 +1,5 @@
 import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -49,32 +50,33 @@ public class TextBoxTest {
             $(".react-datepicker__month-select").$(byText("July")).click();
             $(".react-datepicker__year-select").$(byText("1980")).click();
             $(".react-datepicker__day--026").click();
-            $("#subjectsInput").setValue("123");
+           $("#subjectsInput").setValue("English").pressEnter();
             $("label[for='hobbies-checkbox-1']").click();
             $("#uploadPicture").uploadFromClasspath("example.jpeg");
             $("#currentAddress").setValue("11250 E STATE ROUTE 69 DEWEY AZ 86327-4422 USA");
-            //$("#state").click();
-            // $("#react-select-3-input").setValue("NCR").click();
+            $("#react-select-3-input").setValue("NCR").pressEnter();
             // $("#city").click();
-            //$("#city").$(byText("Delhi")).click();
+            $("#react-select-4-input").setValue("Delhi").pressEnter();
             $("#submit").click();
 
             //Проверка результата заполнения формы
 
-            $("td").shouldHave(text("Alex"));
-            //.shouldHave(text("alex@gmail.com"));
-            //.shouldHave(text("Saegn"));
-            //.shouldHave(text("Female"));
-            //.shouldHave(text("7846586867"));
-            //.shouldHave(text("26 July,1980"));
-            //.shouldHave(text("123"));
-            //.shouldHave(text("Sports"));
-            //.shouldHave(text("example.jpeg"));
-            //.shouldHave(text("11250 E STATE ROUTE 69 DEWEY AZ 86327-4422 USA"));
-            //.shouldHave(text("NCR Delhi"));
-
-
-
+            $(".modal-header").shouldHave(text("Thanks for submitting the form"));
+            $(".table").shouldHave(text("Alex"));
+            $(".table").shouldHave(text("alex@gmail.com"));
+            $(".table").shouldHave(text("Saegn"));
+            $(".table").shouldHave(text("Female"));
+            $(".table").shouldHave(text("7846586867"));
+            $(".table").shouldHave(text("26 July,1980"));
+            $(".table").shouldHave(text("English"));
+            $(".table").shouldHave(text("Sports"));
+            $(".table").shouldHave(text("example.jpeg"));
+            $(".table").shouldHave(text("11250 E STATE ROUTE 69 DEWEY AZ 86327-4422 USA"));
+            $(".table").shouldHave(text("NCR Delhi"));
         }
 
+       @AfterEach
+       void terminateProcces() {
+       closeWindow();
+        }
     }
